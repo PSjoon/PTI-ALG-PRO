@@ -4,7 +4,7 @@ namespace MovieStock.Services;
 
 public class MovieStockService
 {
-    private readonly List<MovieModel> _movie = [];
+    private readonly List<MovieModel> _movie = new();
 
     public void AddMovie(MovieModel product)
     {
@@ -24,6 +24,7 @@ public class MovieStockService
         {
             Console.WriteLine($"Código: {product.MovieCode} | Nome: {product.MovieName} | Preço: {product.MoviePrice:C} | Estoque: {product.Quantity} | Categoria: {product.MovieGenre} | Década: {product.MovieDecade} |");
         }
+
     }
 
     public void RemoveMovie(string MovieToRemove)
@@ -36,7 +37,8 @@ public class MovieStockService
         catch
         {
             Console.WriteLine("\nCódigo inválido.");
-        }        if (foundMovie == null)
+        }        
+        if (foundMovie == null)
         {
             Console.WriteLine("\nProduto não encontrado.");
             return;
